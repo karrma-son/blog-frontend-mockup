@@ -908,7 +908,7 @@ input:hover{
 
 
 
-/* .btn-box{
+.btn-box{
   display: flexbox;
   flex-wrap: wrap;
   align-items: center;
@@ -917,7 +917,7 @@ input:hover{
   background: rgba(17, 17, 17, 0.2);
   border: 3px solid darkslategray; 
   border-radius: 20px;
-} */
+}
 
 gmp-map{
 margin: auto;

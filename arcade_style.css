@@ -63,11 +63,12 @@ header {
   font-family: 'Archivo Black', 'Impact', sans-serif;
   font-size: 72px;
   letter-spacing: -2px;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
+  margin-left: 5px;
   background-image: linear-gradient(
     180deg,
     var(--neon-yellow) 0%,
-    var(--neon-pink) 45%,
+    var(--neon-cyan) 45%,
     var(--neon-lilac) 100%
   );
   -webkit-background-clip: text;
@@ -118,20 +119,21 @@ header {
 .content {
   position: relative;
   z-index: 2;
-  margin-left: 12rem;
   padding: 24px 32px;
   color: var(--ink-soft);
 }
 
 /*  NAV: side rail ----------------------------- */
 nav {
+  display: flex;
+  flex-direction: row;
   background: linear-gradient(180deg, #12002a 0%, #0a0014 100%);
-  width: 10rem;
-  height: 100vh;
+  width: 100vw;
+  height: 6rem;
   border-radius: 0;
   transition: width 0.25s ease, box-shadow 0.25s ease;
-  position: fixed;
-  z-index: 1;
+  /* position: fixed; */
+  z-index: 7;
   left: 0;
   top: 0;
   padding-top: 20px;
@@ -155,7 +157,7 @@ nav::before {
   );
 }
 nav:hover {
-  width: 12rem;
+ 
   box-shadow:
     inset -2px 0 0 var(--neon-cyan),
     8px 0 40px rgba(0, 240, 255, 0.35);
@@ -166,10 +168,14 @@ nav:hover li {
   color: var(--neon-cyan);
 }
 
+nav a {
+  height: 100%;
+  margin-right: 10px;
+}
+
 .nav-img {
   margin: auto;
-  height: auto;
-  width: 45%;
+  width: 25%;
   border: 3px solid var(--neon-yellow);
   border-radius: 100%;
   box-shadow:
@@ -179,8 +185,7 @@ nav:hover li {
 }
 
 nav input {
-  width: 80%;
-  margin-top: 80px;
+  width: 10%;
   padding: 6px 10px;
   border-radius: 0;
   background: #000;
@@ -192,20 +197,18 @@ nav input {
 
 ul {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   text-align: center;
   margin: auto;
   color: var(--ink-muted);
   padding: 0;
 }
 
-.nav-profile {
-  margin-top: 80%;
-}
+
 
 li {
   flex: auto;
-  margin: 4px 0;
+  margin: 4px 16px;
   padding: 4px 0;
   list-style-type: none;
   letter-spacing: 1px;
@@ -229,6 +232,8 @@ li:hover {
   color: var(--neon-pink);
   text-shadow: 0 0 14px var(--neon-pink);
 }
+
+
 
 /* HERO CARD (homepage) -------------------------------- */
 .main-div::before { display: none; }
@@ -290,8 +295,7 @@ img { vertical-align: middle; }
 }
 .carousel {
   margin: 60px auto;
-  margin-left: 18vw;
-  width: 73.5%;
+  width: 82.5%;
   position: relative;
   z-index: 0;
   display: flex;
@@ -312,8 +316,12 @@ img { vertical-align: middle; }
   animation: spin 35s infinite linear;
   padding-right: 1em;
   min-width: max-content;
+  flex-shrink: 0;
 }
 
+.carousel:hover .group {
+  animation-play-state: paused;
+}
 
 .card {
   position: relative;
@@ -779,7 +787,7 @@ img { vertical-align: middle; }
 }
 .close-btn:hover { color: var(--neon-pink); }
 
-/*  LOGIN / REGISTRATION -------------------------------- */
+/*  LOGIN / REGISTRATION / VERIFICATION -------------------------------- */
 .login-page {
   display: flex;
   align-items: center;
@@ -837,6 +845,17 @@ img { vertical-align: middle; }
   text-shadow: 0px 1px 1px var(--neon-yellow);
 }
 
+
+#verification{
+ height: auto;
+}
+#verify-btn{
+margin: 2px 15px 5px;
+}
+
+.btn-box{
+  margin: 10px 1px;
+}
 /* ARCADE BUTTONS -------------------------------------- */
 button {
   width: auto;
@@ -869,24 +888,24 @@ button:active {
 
 #registration-page { 
   text-align: center; 
-margin-top: 150px;
+  margin-top: 50px;
 }
 
 .registration-form {
   display: flex;
-  height: 28rem;
+  height: 50rem;
   justify-content: center;
   text-align: center;
   
-  
+
 }
 .registration {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: start;
   justify-content: flex-start;
   width: 75%;
-  max-height: 450px;
+  max-height: 40rem;
   max-width: 42rem;
   min-width: 30rem;
   background: var(--bg-panel);
@@ -897,15 +916,40 @@ margin-top: 150px;
   margin-bottom: 10px
   ;
 }
+.registration-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
 .user-input {
   margin-top: 50px;
   width: 50%;
 }
+.input-container{
+  display: flex;
+  flex-direction: column;
+   text-align: center;
+   color: var(--neon-cyan);
+   font-family: 'Press Start 2P', cursive;
+}
+.input-container label{
+  margin-top: 10px;
+  margin-bottom: 1px;
+}
+
+.user-input input{
+  width: 80%;
+  padding: 8px;
+  margin-top: 5px;
+}
 .right-box {
-  margin-top: 20px;
+  margin: auto;
   align-items: end;
   height: 300px;
   width: 50%;
+  color: var(--neon-cyan);
+  font-family: 'Press Start 2P', cursive;
+
 }
 .image-box {
   margin: auto;
@@ -936,6 +980,11 @@ margin-top: 150px;
 
 #file-path {
 display: none;
+}
+.registration-login {
+  margin: auto;
+  padding-bottom: 15px;
+  margin-top: 24px;
 }
 
 .registration-login p{
@@ -1025,11 +1074,23 @@ display: none;
   border: 0;
 }
 .interest-checkbox {
-  margin-top: 12px;
+  margin-top: 20px;
   accent-color: var(--neon-pink);
   transform: scale(1.3);
 }
+.stack.form-controls{
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+margin-top: 30px;
+font-size: larger;
+width: 100%;
+color: var(--neon-cyan);
+}
 
+/* #skip-btn{
+  float: right;
+} */
 input {
   text-align: center;
   font-family: 'VT323', monospace;
@@ -1244,6 +1305,7 @@ h3 {
 /* NEWSLETTER ----------------------------------------- */
 .newsletter {
   margin-left: 20px;
+  visibility: hidden;
 }
 .newsletter input {
   padding: 10px;
