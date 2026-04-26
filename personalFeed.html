@@ -12,34 +12,61 @@
 
 <body class="fade">
 
-    <header class="">
-        BASED BLOG
-    
-    </header>
+
 
     <nav>
         <a href="user.html">
             <img class="nav-img" src="images/gear1.png" alt="user-img">
         </a>
+        <header class="">
+           YOUNG BASED BLOG
+        </header>
         <ul class="nav-pages">
-            <li id="home-btn"><a href="index.html"> Home</a></li>
             <li id="blogs-btn"><a href="blogs.html">Blog</a></li>
-
-        </ul>
-        <ul class="nav-profile">
-            <!-- <li id="login-btn"><a class="login-nav" href="login.html"> Login</a></li> -->
             <li id="user-profile"><a class="user-nav" href="user.html"> Profile </a></li>
         </ul>
+       
            <input type="search" placeholder="search">
         
     </nav>
 
-    <div class="personal-page-center">
-        <div class="personal-articles-list-1">
-            
-        </div>
-   </div>
+    <div class="personal-feed-layout"> 
 
+            <div class="personal-feed-left">
+                <div class="personal-articles-list-1">
+                    
+                </div>
+        </div>
+
+        <div class="personal-feed-right">
+             
+            <div class="personal-feed-right-grid" id="users-friendlist">
+                <h3>friendlist</h3>
+                <div class="friend-grid">
+                    <div class="friend-card">
+                        <img src="images/user-avatar-lime.jpg" alt="Friend Name">
+                        <h2>Joneses99</h2>
+                        <p>Online</p>
+                    </div>
+                    <div class="friend-card">
+                        <img src="images/user-avatar-magenta.jpg" alt="Friend Name">
+                        <h2>Rusty-Tin</h2>
+                        <p>Offline</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="personal-feed-right-grid" id="music-player">
+                  <h3>music</h3>
+            </div>
+          
+            <div class="personal-feed-right-grid" id="trending-articles">
+                <h3>Trending?</h3>
+            </div>
+            <div class="personal-feed-right-grid" id="topic-selection">
+                 <h3>Topics Tags</h3>
+            </div>
+        </div>
     </div>
     <script src="main.js" defer></script>
     <script src="article.js"></script>

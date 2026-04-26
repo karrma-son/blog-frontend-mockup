@@ -25,24 +25,26 @@ window.addEventListener("scroll", () => {
 class Article {
   id;
   author;
+  authorAvatar;
   title;
   category;
   subtitle;
   image;
   firstParagraph;
   content;
-  uploadTime;
+  uploadDate;
  
   constructor(articleDetails){
     this.id = articleDetails.id;
     this.author = articleDetails.author;
+    this.authorAvatar = articleDetails.authorAvatar;
     this.title = articleDetails.title;
     this.category =  articleDetails.category;
     this.subtitle = articleDetails.subtitle;
     this.image = articleDetails.image;
     this.firstParagraph = articleDetails.firstParagraph;
     this.content = articleDetails.content;
-    this.uploadTime = articleDetails.uploadTime;
+    this.uploadDate = articleDetails.uploadDate;
   }
 
   fillArticle(){
@@ -55,7 +57,7 @@ class Article {
     const articleContent = document.getElementById("article-content");
     const heroBg = document.getElementById("hero-bg");
     const scrollTitle = document.getElementById("scroll-title");
-    const uploadTime = document.getElementById("upload-time");
+    const uploadDate = document.getElementById("upload-time");
 
     heroTitle.textContent = this.title;
     heroAuthor.textContent = this.author;
@@ -63,7 +65,7 @@ class Article {
     heroSubtitle.textContent = this.subtitle;
 
     
-    uploadTime.textContent = this.uploadTime;
+    uploadDate.textContent = this.uploadDate;
 
     heroImage.src = this.image;
 
@@ -119,19 +121,21 @@ renderPersonalArticles(){
       <div class="personal-article-div">
           <div class="personal-article-div-inner">
               <div class="personal-article-left-top">
-                  <div class="personal-article-left-title">
-                      <h1>${this.title}</h1>
-                  </div>
+                <div class="personal-article-author" >
+                  <img class="author-avatar"  src="${this.authorAvatar}" alt="${this.author}">
+                  <p> ${this.author}</p>
+                  <p> ${this.uploadDate}</p>
+                </div>
+                <div class="personal-article-left-title">
+                    <h1>${this.title}</h1>
+                </div>
               </div>
               <div class="personal-article-left-bottom">
                 <div class="personal-article-left-subtitle">
                   <h2>${this.subtitle}</h2>
                 </div>
               </div>
-              <div class="personal-article-bottom" >
-                <p> ${this.author}</p>
-                <p> ${this.uploadTime}</p>
-              </div>
+
           </div>
           <div class="personal-article-img-div">
               <img class="personal-article-img"  src="${this.image}" alt="${this.title}">
@@ -160,13 +164,20 @@ renderCarousel(){
 }
 }
 
+const date = new Date();
+const now = date.toLocaleDateString('en-US', {
+  month: 'short',
+  day: '2-digit',
+  year: 'numeric'
+});
 
 
 const articles = [ 
   { id:1,
+    authorAvatar:"images/user-avatar-lime.jpg",
     author: "Joe Momma",
     title: "Super Mario Galaxy the Movie is a Hit!",
-    uploadTime: 1220,
+    uploadDate: now,
     category: "Random",
     subtitle: "The beginning of something big is right around the corner",
     image: "images/SMB3_Artwork.webp",
@@ -180,9 +191,10 @@ const articles = [
 
   {
     id:2,
+    authorAvatar:"images/user-avatar-magenta.jpg",
     author: "Rick Flair",
-    title: "The 2nd article of the New Blog!",
-    uploadTime: 340,
+    title: "Sonic the Hedgehog 25th Anniversary",
+    uploadDate: now,
     category: "Opinion",
     subtitle: "The beginning of something big is right around the corner",
     image: "images/SonicConcept5.png",
@@ -194,7 +206,9 @@ const articles = [
 
   {
     id:3,
+    authorAvatar:"images/gear1.png",
     author: "Tony Stark",
+    uploadDate: now,
     title: "The Metal Gear Story You've Never Heard",
     category: "Retro",
     subtitle: "The Metal Gear Solid audio drama",
@@ -208,13 +222,14 @@ const articles = [
   {
     id:4,
     author: "Man Rock",
+    uploadDate: now,
     title: "Ratchet and Clank a Classic",
     category: "Retro",
     subtitle: "Get Clanked with the Tank",
     image: "images/ratchet_clank_!.jpg",
-    content:`The Metal Gear Solid audio drama is a spinoff of the Metal Gear Solid video game released only in Japan. It was broadcast in weekly segments on a syndicate radio program called Club db, which aired on the radio station Nippon Cultural Broadcasting (JOQR) and its affiliates. The drama lasted twelve installments, which aired between October 24, 1998 and January 9, 1999. The drama was then collected in two albums, Drama CD Metal Gear Solid Vol. 1, released on December 4, 1998; and Drama CD Metal Gear Solid Vol. 2, released on January 8, 1999.
-    While the audio drama did not receive an official overseas release, it saw an English translation by an online user named Juan. With his consent, an updated script was uploaded to MGS TUS by Marc Laidlaw. This script was used years later for a fandubbed version uploaded by Josh Griffiths.[1] Prior to this, Marc had been hoping do his own fandub with an updated translation.[2]
-    The drama focuses Solid Snake, Roy Campbell, Meryl Silverburgh and Mei Ling as they participate in various missions following the events of the Shadow Moses Incident. The stories are not considered part of the Metal Gear canon, but are instead sidestories depicting hypothetical situations. The drama was directed by Shuyo Murata and written by the series' military adviser Motosada Mori. Yoji Shinkawa also provided the artwork for the liner notes. `
+    firstParagraph: `I'm currently writing a retrospective on the first three Ratchet & Clank games for Retro PlayStation Magazine (RPM) and upon doing some deeper research into this franchise, I came upon an interesting factoid.`,
+    content:` While I believe Gran Turismo to be PlayStation's longest-running, active franchise, Ratchet & Clank seems to actually hold the honor of being PlayStation's most prolific series - with a staggering sixteen titles under its belt, and Ratchet is PlayStation's longest-running mascot character. Not every game is known for meeting a high-quality bar, as can be expected with that many entries, but each game in the franchise seems to be at least decent, and most of them are actually highly regarded and lauded games in PlayStation's library. I recently played and beat the original Ratchet & Clank and have some thoughts, most of them quite good.
+            Ratchet & Clank, at its absolute core, is a 3D platformer game. It is part of the PlayStation 2's beloved "Big 3" of mascot platformer series, along with Jak and Daxter and Sly Cooper. Each of these series innovated on the genre in major ways, but Ratchet & Clank perhaps went the furthest. Where many 3D platformers feature very basic combat, Ratchet went all in. In fact, the weapons and gadgetry of the series are probably the most iconic feature of the franchise.`
   },
   {
     id:5,
@@ -241,7 +256,7 @@ const articles = [
     { id:7,
     author: "Joe Momma",
     title: "Super Mario Galaxy the Movie is a Hit!",
-    uploadTime: 1220,
+    uploadDate: new Date("April", 21, 2026),
     category: "Random",
     subtitle: "The beginning of something big is right around the corner",
     image: "images/SMB3_Artwork.webp",
@@ -257,7 +272,7 @@ const articles = [
     id:8,
     author: "Rick Flair",
     title: "The 2nd article of the New Blog!",
-    uploadTime: 340,
+    uploadDate: 340,
     category: "Opinion",
     subtitle: "The beginning of something big is right around the corner",
     image: "images/SonicConcept5.png",
