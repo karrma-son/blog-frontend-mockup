@@ -1,6 +1,6 @@
 const Max = 5;
 
-
+const form = document.querySelector(".form-content");
 const checkboxes = document.querySelectorAll(".interest-checkbox");
 
 checkboxes.forEach(box => {
@@ -15,6 +15,7 @@ checkboxes.forEach(box => {
     })
 })
 
+
 function checkDisabled(){
     const checked = document.querySelectorAll(".interest-checkbox:checked");
     
@@ -27,18 +28,33 @@ function checkDisabled(){
     }
 }
 
-function selectionAlert(){
+// function selectionAlert(){
 
-    const continueBtn = document.querySelector("#continue-btn");
+//     const continueBtn = document.querySelector("#continue-btn");
     
-    continueBtn.addEventListener("click", () =>{
-        const checked = document.querySelectorAll(".interest-checkbox:checked");
+//     continueBtn.addEventListener("click", () =>{
+//         const checked = document.querySelectorAll(".interest-checkbox:checked");
         
-        if (checked.length === 0) { 
-            alert("Please select at least one interest or skip");
-        }
-    });
+//         if (checked.length === 0) { 
+//             alert("Please select at least one interest or skip");
+//         }
+//     });
     
-}
+// }
 
-selectionAlert();
+
+form.addEventListener("submit", (e) => {
+    const checked = document.querySelectorAll(".interest-checkbox:checked");
+    const action = e.submitter?.id;
+    
+    if (action === "continue-btn"){
+        if (checked.length === 0) {
+            e.preventDefault();
+            alert("Please select at least one interest or skip");
+
+        }
+    }
+})
+
+// selectionAlert();
+checkDisabled();
