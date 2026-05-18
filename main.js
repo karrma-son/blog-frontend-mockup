@@ -87,6 +87,47 @@ fileInput.addEventListener("change", function () {
   
 });
 
+function updateCount() {
+    const title = document.getElementById("article-title-upload").value;
+    const subtitle = document.getElementById("article-subtitle-upload").value;
+    const text = document.getElementById("article-upload").value;
+    const titleCount = title.length;
+    const subtitleCount = subtitle.length;
+    const count = text.length;
+    document.getElementById("current1").innerText = titleCount;
+    document.getElementById("current2").innerText = subtitleCount;
+    document.getElementById("current").innerText = count;
+}
+
+// // Upload article display ---------------------------------------->>
+// const fileInput = document.getElementById("article-file-path");
+// const registrationImg = document.getElementById("article-img");
+
+
+// fileInput.addEventListener("change", function () {
+//     const file = this.files[0];
+
+//     if (file) {
+//         const reader = new FileReader();
+
+//         reader.addEventListener("load", function (){
+//             registrationImg.src = this.result;
+//         });
+
+//         reader.readAsDataURL(file);
+//     }
+
+//     if (!file) return;
+    
+//     if (!file.type.startsWith("image/")) {
+//         alert('Please upload an image file');
+//         return;
+//     }
+
+  
+// });
+
+
 // document.addEventListener("DOMContentLoaded", () => {
 
 //     function openModal() {

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="arcade_style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=photo_camera_front" />
+    <title>Create Article</title>
+</head>
+
+<body class="fade" id="create-article-page">
+    <nav>
+        <a href="index.html">
+            <img class="nav-img" src="images/gear1.png" alt="logo-img">
+        </a>
+        <header>
+            YOUNG BASED BLOG
+        </header>
+        <ul class="nav-pages">
+            <li id="blogs-btn"><a href="blogs.html">Blogs</a></li>
+            <!-- <li id="user-profile"><a class="user-nav" href="user.html"> Profile </a></li> -->
+            <li id=""></li>
+        </ul>
+
+        <input type="search" placeholder="search">
+
+    </nav>
+
+    <h3>Add your article to the site</h3>
+    <form class="create-article-form fade" action="/create-article" method="post">
+        <div class="create-article">
+            <div class="create-article-row">
+                <div class="create-article-user-input">
+
+                    <div class="create-article-input-container">
+                        <label for="article-title">Article title</label>
+                        <input id="article-title-upload" name="article-title" title="article-title" maxlength="50"
+                            spellcheck="true" oninput="updateCount()"
+                            aria-placeholder="Please enter your artiicle title"></input>
+                        <p><span id="current1">0</span> / 50 characters</p>
+
+                        <label for="article-subtitle">Article subtitle</label>
+                        <input id="article-subtitle-upload" name="article-subtitle" title="article-subtitle"
+                            maxlength="30" spellcheck="true" oninput="updateCount()"
+                            aria-placeholder="Please enter your artiicle subtitle"></input>
+                        <p><span id="current2">0</span> / 30 characters</p>
+
+                        <label for="article-upload">Enter your article body</label>
+                        <textarea id="article-upload" name="article-upload" title="article-upload" maxlength="2000"
+                            spellcheck="true" oninput="updateCount()"
+                            aria-placeholder="Please enter your artiicle information"></textarea>
+                        <p><span id="current">0</span> / 2000 characters</p>
+                        <label for="tags">Choose your article's topic:</label>
+
+                        <select name=topic" id="topic">
+                            <option value="Select">Select Topic</option>
+                            <option value="Gaming">Gaming</option>
+                            <option value="Streaming">Streaming</option>
+                            <option value="Tech">Tech</option>
+                            <option value="Slice of Life">Slice of Life</option>
+                            <option value="Music">Music</option>
+                            <option value="Manga">Manga</option>
+                            <option value="Sports">Sports</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="create-article-right-box">
+                    <h2>Upload your article's image</h2>
+                    <div class="image-box">
+                        <label for="article-file-path">
+                            <img id="article-img" class="registration-img" src="images/White_grey_checkerboard.svg"
+                                alt="user-avatar">
+                        </label>
+                    </div>
+                    <!-- <span class="material-symbols-outlined">
+                            photo_camera_front
+                        </span>
+                        optional -->
+
+                    <input type="file" accept="image/jpeg, image/png, image/jpg" id="article-file-path">
+
+
+
+                </div>
+
+            </div>
+            <div class="article-submit-btn">
+                <button id="submit-btn" class="submit-btn" type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+    <script src="main.js"> </script>
+</body>
+
+</html>
